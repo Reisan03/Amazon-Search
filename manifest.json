@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Amazon Searcher",
     "version": "1.0",
-    "desctiption": "選択した範囲をAmazon.co.jpで検索します。",
+    "description": "選択した範囲をAmazon.co.jpで検索します。",
 
     "background": {
         "scripts": ["search.js"],
@@ -14,6 +14,6 @@
         "contextMenus",
         "declarativeContent",
         "storage",
-        "window"
+        "windows"
     ]
 }
