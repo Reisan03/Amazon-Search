@@ -1,0 +1,19 @@
+{
+    "menifest_version": 1,
+    "name": "Amazon Searcher",
+    "version": "1.0β",
+    "desctiption": "選択した範囲をAmazon.co.jpで検索します。",
+
+    "background": {
+        "scripts": ["search.js"],
+        "persistent": false
+    },
+
+    "permissions": [
+        "activeTab",
+        "contextMenus",
+        "declarativeContent",
+        "storage",
+        "window"
+    ]
+}
