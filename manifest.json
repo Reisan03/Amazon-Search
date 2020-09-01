@@ -10,10 +10,10 @@
     },
 
     "permissions": [
-        "activeTab",
+        "tabs",
         "contextMenus",
-        "declarativeContent",
-        "storage",
-        "windows"
+        "windows",
+        "http://*/*",
+        "https://*/*"
     ]
 }

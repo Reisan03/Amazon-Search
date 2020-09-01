@@ -1,15 +1,33 @@
+var ContextMenus = function () {
+    var items = this.items = {};
+
+    chrome.contextMenus.onClicked.addListener(function (info, tab) {
+        items[info.menuItemId].onclick(info, tab);
+    });
+};
+
+ContextMenus.prototype = {
+    create: function (properties) {
+        this.items[properties.id] = {
+            onclick: properties.onclick
+        };
+
+        properties.onclick = null;
+        chrome.contextMenus.create(properties);
+    }
+};
+
 chrome.runtime.onInstalled.addListener(function() {
-    chrome.contextMenus.create({
-        id: "amazon",
+    var contextMenus = new ContextMenus();
+
+    contextMenus.create({
         type: "normal",
-        title: "Amazonで検索する"
+        id: "Hello",
+        title: "Amazonで検索する",
+        onclick: sayHello
     });
 });
 
-chrome.contextMenus.onClicked.addListener(function(item){
-    console.log("出来た");
-    const select = selectionText();
-    chrome.tabs.executeScript({
-        code: "document.body.style.backgroundColor = '" + item.menuItemId + "'"
-    });
-});
+function sayHello() {
+    alert("HEllo");
+}
